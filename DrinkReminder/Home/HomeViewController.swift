@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    private var contentView = HomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,13 @@ class HomeViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         title = "Home"
+        
+        view.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
     }
     
     private func setupNavigation() {

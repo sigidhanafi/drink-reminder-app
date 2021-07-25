@@ -17,6 +17,15 @@ internal class HomeView: UIView {
         return stackView
     }()
     
+    private let topSpacing: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.10).isActive = true
+        
+        return view
+    }()
+    
     private let dailyContentWrapperStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -39,7 +48,7 @@ internal class HomeView: UIView {
         view.backgroundColor = .cyan
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.5).isActive = true
+        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.60).isActive = true
         
         return view
     }()
@@ -49,7 +58,7 @@ internal class HomeView: UIView {
         view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.5).isActive = true
+        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.60).isActive = true
         
         return view
     }()
@@ -122,6 +131,7 @@ internal class HomeView: UIView {
         
         drinkButtonContentWrapperStackView.addArrangedSubview(drinkButtonContentStackView)
         
+        contentStackView.addArrangedSubview(topSpacing)
         contentStackView.addArrangedSubview(dailyContentWrapperStackView)
         contentStackView.addArrangedSubview(drinkButtonContentWrapperStackView)
         

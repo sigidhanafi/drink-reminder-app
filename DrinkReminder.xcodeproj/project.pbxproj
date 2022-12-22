@@ -16,6 +16,7 @@
 		3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1426532FD200FCC102 /* UIImage+color.swift */; };
 		3E592F1C2653326C00FCC102 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1B2653326C00FCC102 /* HomeView.swift */; };
 		3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F2126533C6100FCC102 /* CustomButton.swift */; };
+		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3E592F1426532FD200FCC102 /* UIImage+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+color.swift"; sourceTree = "<group>"; };
 		3E592F1B2653326C00FCC102 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3E592F2126533C6100FCC102 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				3E592EFE26532E4D00FCC102 /* HomeViewController.swift */,
 				3E592F1B2653326C00FCC102 /* HomeView.swift */,
+				D8F6DC9B29542A4600833A0D /* SettingViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				3E592F0526532E4D00FCC102 /* DrinkReminder.xcdatamodeld in Sources */,
 				3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */,
 				3E592EFF26532E4D00FCC102 /* HomeViewController.swift in Sources */,
+				D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */,
 				3E592F1C2653326C00FCC102 /* HomeView.swift in Sources */,
 				3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */,
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,

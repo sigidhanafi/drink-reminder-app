@@ -13,17 +13,9 @@ internal class HomeView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.spacing = 20
         
         return stackView
-    }()
-    
-    private let topSpacing: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.10).isActive = true
-        
-        return view
     }()
     
     private let dailyContentWrapperStackView: UIStackView = {
@@ -48,7 +40,6 @@ internal class HomeView: UIView {
         view.backgroundColor = .cyan
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.60).isActive = true
         
         return view
     }()
@@ -58,7 +49,6 @@ internal class HomeView: UIView {
         view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.60).isActive = true
         
         return view
     }()
@@ -130,16 +120,15 @@ internal class HomeView: UIView {
         drinkButtonContentStackView.addArrangedSubview(buttonDrink4)
         
         drinkButtonContentWrapperStackView.addArrangedSubview(drinkButtonContentStackView)
-        
-        contentStackView.addArrangedSubview(topSpacing)
+                
         contentStackView.addArrangedSubview(dailyContentWrapperStackView)
         contentStackView.addArrangedSubview(drinkButtonContentWrapperStackView)
         
         self.addSubview(contentStackView)
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
-        contentStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        contentStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        contentStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        contentStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        contentStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        contentStackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor).isActive = true
+        contentStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        contentStackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor).isActive = true
     }
 }

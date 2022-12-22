@@ -14,9 +14,9 @@
 		3E592F0726532E5000FCC102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E592F0626532E5000FCC102 /* Assets.xcassets */; };
 		3E592F0A26532E5000FCC102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E592F0826532E5000FCC102 /* LaunchScreen.storyboard */; };
 		3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1426532FD200FCC102 /* UIImage+color.swift */; };
-		3E592F1C2653326C00FCC102 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1B2653326C00FCC102 /* HomeView.swift */; };
 		3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F2126533C6100FCC102 /* CustomButton.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
+		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,9 @@
 		3E592F0926532E5000FCC102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E592F0B26532E5000FCC102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E592F1426532FD200FCC102 /* UIImage+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+color.swift"; sourceTree = "<group>"; };
-		3E592F1B2653326C00FCC102 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3E592F2126533C6100FCC102 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				3E592EFE26532E4D00FCC102 /* HomeViewController.swift */,
-				3E592F1B2653326C00FCC102 /* HomeView.swift */,
 				D8F6DC9B29542A4600833A0D /* SettingViewController.swift */,
 			);
 			path = Home;
@@ -99,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				3E592F2126533C6100FCC102 /* CustomButton.swift */,
+				D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */,
 				3E592EFF26532E4D00FCC102 /* HomeViewController.swift in Sources */,
 				D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */,
-				3E592F1C2653326C00FCC102 /* HomeView.swift in Sources */,
+				D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */,
 				3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */,
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,
 				3E592EFD26532E4D00FCC102 /* SceneDelegate.swift in Sources */,

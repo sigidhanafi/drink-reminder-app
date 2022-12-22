@@ -8,7 +8,7 @@
 import UIKit
 
 internal class CustomButton: UIView {
-    private let button: UIButton = {
+    internal let button: UIButton = {
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setTitleColor(.black, for: .normal)

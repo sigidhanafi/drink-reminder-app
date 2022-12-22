@@ -81,6 +81,7 @@ class HomeViewController: UIViewController {
         
         setupView()
         setupNavigation()
+        setupAction()
     }
     
     private func setupView() {
@@ -110,7 +111,33 @@ class HomeViewController: UIViewController {
     }
     
     private func setupAction() {
-        buttonDrink1.button.addTarget(self, action: #selector(drinkSmallCup), for: .touchUpInside)
+        buttonDrink1.handler = { [weak self] in
+            guard let self = self else { return }
+            let currentProgress = self.progress
+            self.progress += 0.1
+            self.circularProgressBarView.progressAnimation(fromValue: currentProgress, toValue: self.progress)
+        }
+        
+        buttonDrink2.handler = { [weak self] in
+            guard let self = self else { return }
+            let currentProgress = self.progress
+            self.progress += 0.2
+            self.circularProgressBarView.progressAnimation(fromValue: currentProgress, toValue: self.progress)
+        }
+        
+        buttonDrink3.handler = { [weak self] in
+            guard let self = self else { return }
+            let currentProgress = self.progress
+            self.progress += 0.25
+            self.circularProgressBarView.progressAnimation(fromValue: currentProgress, toValue: self.progress)
+        }
+        
+        buttonDrink4.handler = { [weak self] in
+            guard let self = self else { return }
+            let currentProgress = self.progress
+            self.progress += 0.4
+            self.circularProgressBarView.progressAnimation(fromValue: currentProgress, toValue: self.progress)
+        }
     }
     
     private func setupNavigation() {
@@ -122,11 +149,6 @@ class HomeViewController: UIViewController {
     @objc private func navigateToSetting() {
         let settingViewController = SettingViewController()
         self.navigationController?.pushViewController(settingViewController, animated: true)
-    }
-    
-    @objc private func drinkSmallCup() {
-        circularProgressBarView.progressAnimation(fromValue: progress, toValue: progress + 0.25)
-        progress += 0.1
     }
 
 }

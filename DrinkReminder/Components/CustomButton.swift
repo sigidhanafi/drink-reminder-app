@@ -26,6 +26,8 @@ internal class CustomButton: UIView {
         return button
     }()
     
+    internal var handler: (() -> Void)?
+    
     convenience init(title: String) {
         self.init(frame: CGRect.zero)
         
@@ -38,6 +40,13 @@ internal class CustomButton: UIView {
         button.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         button.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        
+        button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+    }
+    
+    @objc private func handleTap() {
+        guard let handler = handler else { return }
+        handler()
     }
     
     override init(frame: CGRect) {

@@ -21,7 +21,6 @@ internal class CustomButton: UIView {
         button.titleLabel?.textAlignment = .center
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         return button
     }()

@@ -11,6 +11,7 @@ class CircularProgressBarView: UIView {
     
     private var circleLayer = CAShapeLayer()
     private var progressLayer = CAShapeLayer()
+    internal var targetLayer = CATextLayer()
     private let startPoint = CGFloat(-Double.pi / 2)
     private let endPoint = CGFloat(3 * Double.pi / 2)
     
@@ -47,13 +48,22 @@ class CircularProgressBarView: UIView {
         
         // added progressLayer to layer
         layer.addSublayer(progressLayer)
+        
+        targetLayer.fontSize = 32
+        targetLayer.string = "0 liters"
+        targetLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+        targetLayer.isWrapped = true
+        targetLayer.alignmentMode = .center
+        targetLayer.truncationMode = .end
+        targetLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 50, y: 0 - 40, width: 100, height: 100)
+        layer.addSublayer(targetLayer)
     }
     
     internal func progressAnimation(fromValue: CGFloat, toValue: CGFloat) {
         // created circularProgressAnimation with keyPath
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         // set the end time
-        circularProgressAnimation.duration = 2
+        circularProgressAnimation.duration = toValue - fromValue < 0.15 ? 1 : 2
         circularProgressAnimation.toValue = toValue
         circularProgressAnimation.fromValue = fromValue
         circularProgressAnimation.fillMode = .forwards

@@ -86,7 +86,7 @@ class HomeViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .white
-        title = "Drink Reminder"
+        title = "Hydrated!"
         
         mainContentStackView.addArrangedSubview(circularProgressBarView)
         mainContentStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -137,6 +137,8 @@ class HomeViewController: UIViewController {
             let currentProgress = self.progress
             self.progress += 0.4
             self.circularProgressBarView.progressAnimation(fromValue: currentProgress, toValue: self.progress)
+            
+            let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: "hydrateTargetValue")
         }
     }
     

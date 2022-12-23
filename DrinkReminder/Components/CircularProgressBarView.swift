@@ -17,10 +17,6 @@ class CircularProgressBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createCircularPath()
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            self.progressAnimation(progressValue: 0.6)
-//        }
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +41,7 @@ class CircularProgressBarView: UIView {
         
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = .round
-        progressLayer.lineWidth = 10.0
+        progressLayer.lineWidth = 15.0
         progressLayer.strokeEnd = 0
         progressLayer.strokeColor = UIColor.blue.withAlphaComponent(0.5).cgColor
         
@@ -53,7 +49,7 @@ class CircularProgressBarView: UIView {
         layer.addSublayer(progressLayer)
     }
     
-    func progressAnimation(fromValue: CGFloat, toValue: CGFloat) {
+    internal func progressAnimation(fromValue: CGFloat, toValue: CGFloat) {
         // created circularProgressAnimation with keyPath
         let circularProgressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         // set the end time

@@ -12,10 +12,10 @@ internal class CustomButton: UIView {
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .cyan
+        button.backgroundColor = UIColor.blue.withAlphaComponent(0.1)
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.blue.withAlphaComponent(0.5).cgColor
         
         button.titleLabel?.lineBreakMode = .byWordWrapping
         button.titleLabel?.textAlignment = .center

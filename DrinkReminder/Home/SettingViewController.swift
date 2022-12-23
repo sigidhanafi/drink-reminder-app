@@ -87,12 +87,6 @@ class SettingViewController: UIViewController {
         return view
     }()
     
-    private let deviderBottomView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private let hydrateTargetLabel: UILabel = {
         let label = UILabel()
         label.text = "please drink at least"
@@ -117,12 +111,6 @@ class SettingViewController: UIViewController {
         return label
     }()
     
-    private let resetValueButton: CustomButton = {
-        let button = CustomButton(title: "Reset All Data")
-        
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -133,7 +121,7 @@ class SettingViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         
-        setupAction()
+        setupNavigation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,31 +145,42 @@ class SettingViewController: UIViewController {
         contentStackView.addArrangedSubview(deviderHeaderView)
         contentStackView.addArrangedSubview(hydrateTargetLabel)
         contentStackView.addArrangedSubview(hydrateTargetValueLabel)
-        contentStackView.addArrangedSubview(deviderBottomView)
-        contentStackView.addArrangedSubview(resetValueButton)
         
         view.addSubview(contentStackView)
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             contentStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
-            contentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             contentStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
             deviderHeaderView.heightAnchor.constraint(equalToConstant: 70),
             deviderHeaderView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
             hydrateTargetLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
-            hydrateTargetValueLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
-            resetValueButton.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)
+            hydrateTargetValueLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)
         ])
     }
     
-    private func setupAction() {
-        resetValueButton.handler = {
-            UserDefaults.resetDefaults()
-            
-            self.weightFormTextField.text = ""
-            self.hydrateTargetValueLabel.text = "- liters"
-            self.view.setNeedsLayout()
-        }
+    private func setupNavigation() {
+        // adding add button on the right bar button item
+        let addBarButtonItem = UIBarButtonItem(title: "Reset Data", style: .plain, target: self, action: #selector(showConfirmationResetData))
+        navigationItem.rightBarButtonItem = addBarButtonItem
+    }
+    
+    @objc private func showConfirmationResetData() {
+        let alert = UIAlertController(title: "Reset Data", message: "Are you sure to reset all data?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { [weak self] _ in
+            self?.resetData()
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func resetData() {
+        UserDefaults.resetDefaults()
+        
+        self.weightFormTextField.text = ""
+        self.hydrateTargetValueLabel.text = "- liters"
+        self.view.setNeedsLayout()
     }
     
     @objc private func dismissKeyboard() {

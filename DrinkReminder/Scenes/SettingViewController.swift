@@ -10,6 +10,7 @@ import UIKit
 class SettingViewController: UIViewController {
     
     // MARK: properties
+    private let dataService = DataServices()
     
     // MARK: views
     private let contentStackView: UIStackView = {
@@ -127,7 +128,7 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let target = DataServices.getTarget()
+        let target = self.dataService.getTarget()
         
         self.weightFormTextField.text = "\(target.weight)"
         self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
@@ -175,7 +176,7 @@ class SettingViewController: UIViewController {
     }
     
     private func resetData() {
-        DataServices.reset()
+        dataService.reset()
         
         self.weightFormTextField.text = ""
         self.hydrateTargetValueLabel.text = "- liters"
@@ -187,10 +188,10 @@ class SettingViewController: UIViewController {
         
         guard let newWeightString = weightFormTextField.text, let newWeightInt = Double(newWeightString) else { return }
         
-        DataServices.saveTarget(weight: newWeightInt)
+        dataService.saveTarget(weight: newWeightInt)
     
         // update the UI
-        let target = DataServices.getTarget()
+        let target = dataService.getTarget()
         self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
     }
 }

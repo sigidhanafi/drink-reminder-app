@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private let viewModel = HomeViewModel(dataService: DataServices())
+    
     // MARK: views
     private let contentStackView: UIStackView = {
         let stackView = UIStackView()
@@ -86,21 +88,23 @@ class HomeViewController: UIViewController {
         setupView()
         setupNavigation()
         setupAction()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        updateProgressUI()
+    
+        self.viewModel.willAppearTrigger()
     }
     
-    private func updateProgressUI() {
-        let progress = DataServices.getProgress()
-        let percentage = ((progress.progress / progress.target) * 100) / 100
+    private func bindViewModel() {
+        viewModel.targetLabel = { [weak self] label in
+            self?.circularProgressBarView.targetLayer.string = label
+        }
         
-        // update UI
-        circularProgressBarView.targetLayer.string = "\(progress.target / 1000) liters"
-        self.progress = CGFloat(percentage)
+        viewModel.progressPercentage = { [weak self] percentage in
+            self?.progress = percentage
+        }
     }
     
     private func setupView() {
@@ -135,29 +139,23 @@ class HomeViewController: UIViewController {
             
             // 240ml
             // save the progress in mili liter
-            DataServices.saveProgress(added: 240)
-            
-            self.updateProgressUI()
+            self.viewModel.saveProgress(added: 240)
         }
         
         buttonDrink2.handler = { [weak self] in
             guard let self = self else { return }
-            
+
             // 325ml
             // save the progress in mili liter
-            DataServices.saveProgress(added: 325)
-            
-            self.updateProgressUI()
+            self.viewModel.saveProgress(added: 325)
         }
         
         buttonDrink3.handler = { [weak self] in
             guard let self = self else { return }
-            
+
             // 600ml
             // save the progress in mili liter
-            DataServices.saveProgress(added: 600)
-            
-            self.updateProgressUI()
+            self.viewModel.saveProgress(added: 600)
         }
         
         buttonDrink4.handler = { [weak self] in
@@ -165,9 +163,7 @@ class HomeViewController: UIViewController {
             
             // 1200ml
             // save the progress in mili liter
-            DataServices.saveProgress(added: 1200)
-            
-            self.updateProgressUI()
+            self.viewModel.saveProgress(added: 1200)
         }
     }
     

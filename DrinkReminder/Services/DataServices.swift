@@ -7,9 +7,19 @@
 
 import Foundation
 
-struct DataServices {
+protocol DataServiceProtocol {
+    func saveTarget(weight: Double)
+    func getTarget() -> Target
+    func getProgress() -> Progress
+    func getHistory()
+    func saveProgress(added: Double)
+    func deleteProgress()
+    func reset()
+}
+
+final class DataServices: DataServiceProtocol {
     
-    static internal func saveTarget(weight: Double) {
+    internal func saveTarget(weight: Double) {
         // save weight
         // save target value
         
@@ -35,14 +45,14 @@ struct DataServices {
         UserDefaults.standard.set(weight, forKey: Constant.hydrateWeightValue)
     }
     
-    static internal func getTarget() -> Target {
+    internal func getTarget() -> Target {
         let weight = UserDefaults.standard.integer(forKey: Constant.hydrateWeightValue)
         let hydrateTargetValue = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue) // in mili liter
         
         return Target(target: hydrateTargetValue, weight: weight)
     }
     
-    static internal func getProgress() -> Progress {
+    internal func getProgress() -> Progress {
         // get data by today date
         let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue)
         let hydrateProgressValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
@@ -50,22 +60,22 @@ struct DataServices {
         return Progress(target: hydrateTargetValue, progress: hydrateProgressValue)
     }
     
-    static internal func getHistory() {
+    internal func getHistory() {
         // get all data
     }
     
-    static internal func saveProgress(added: Double) {
+    internal func saveProgress(added: Double) {
         // save date, progres value (ml), target value,
         let currentProgress = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
         
         UserDefaults.standard.set(currentProgress + added, forKey: Constant.hydrateProgressValue)
     }
     
-    static internal func deleteProgress() {
+    internal func deleteProgress() {
         // get data by date and get latest, remove date, progress value (ml), target value
     }
     
-    static internal func reset() {
+    internal func reset() {
         // reset all data
         UserDefaults.resetDefaults()
     }

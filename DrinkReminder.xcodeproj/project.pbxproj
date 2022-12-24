@@ -17,6 +17,9 @@
 		3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F2126533C6100FCC102 /* CustomButton.swift */; };
 		D817B0342956119800CB5633 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0332956119800CB5633 /* UserDefaults.swift */; };
 		D817B0362956168500CB5633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0352956168500CB5633 /* Constants.swift */; };
+		D817B0392956C49F00CB5633 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0382956C49F00CB5633 /* DataServices.swift */; };
+		D817B03C2956C69D00CB5633 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03B2956C69D00CB5633 /* Progress.swift */; };
+		D817B03E2956CACE00CB5633 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03D2956CACE00CB5633 /* Target.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +37,9 @@
 		3E592F2126533C6100FCC102 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D817B0332956119800CB5633 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D817B0352956168500CB5633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D817B0382956C49F00CB5633 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		D817B03B2956C69D00CB5633 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
+		D817B03D2956CACE00CB5633 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,8 +74,10 @@
 		3E592EF926532E4D00FCC102 /* DrinkReminder */ = {
 			isa = PBXGroup;
 			children = (
+				D817B03A2956C68900CB5633 /* Models */,
+				D817B0372956C47500CB5633 /* Services */,
 				3E592F2026533C3800FCC102 /* Components */,
-				3E592F182653309900FCC102 /* Home */,
+				3E592F182653309900FCC102 /* Scenes */,
 				3E592F1326532FAA00FCC102 /* Extensions */,
 				3E592EFA26532E4D00FCC102 /* AppDelegate.swift */,
 				3E592EFC26532E4D00FCC102 /* SceneDelegate.swift */,
@@ -91,13 +99,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3E592F182653309900FCC102 /* Home */ = {
+		3E592F182653309900FCC102 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				3E592EFE26532E4D00FCC102 /* HomeViewController.swift */,
 				D8F6DC9B29542A4600833A0D /* SettingViewController.swift */,
 			);
-			path = Home;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		3E592F2026533C3800FCC102 /* Components */ = {
@@ -107,6 +115,23 @@
 				D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D817B0372956C47500CB5633 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D817B0382956C49F00CB5633 /* DataServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D817B03A2956C68900CB5633 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D817B03B2956C69D00CB5633 /* Progress.swift */,
+				D817B03D2956CACE00CB5633 /* Target.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +209,9 @@
 				3E592EFF26532E4D00FCC102 /* HomeViewController.swift in Sources */,
 				D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */,
 				D817B0362956168500CB5633 /* Constants.swift in Sources */,
+				D817B03C2956C69D00CB5633 /* Progress.swift in Sources */,
+				D817B0392956C49F00CB5633 /* DataServices.swift in Sources */,
+				D817B03E2956CACE00CB5633 /* Target.swift in Sources */,
 				D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */,
 				3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */,
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,

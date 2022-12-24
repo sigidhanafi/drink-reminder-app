@@ -127,11 +127,10 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let weight = UserDefaults.standard.integer(forKey: Constant.hydrateWeightValue)
-        self.weightFormTextField.text = "\(weight)"
+        let target = DataServices.getTarget()
         
-        let hydrateTargetValue = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue) // in mili liter
-        self.hydrateTargetValueLabel.text = "\(hydrateTargetValue / 1000) liters"
+        self.weightFormTextField.text = "\(target.weight)"
+        self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
     }
     
     private func setupView() {
@@ -176,7 +175,7 @@ class SettingViewController: UIViewController {
     }
     
     private func resetData() {
-        UserDefaults.resetDefaults()
+        DataServices.reset()
         
         self.weightFormTextField.text = ""
         self.hydrateTargetValueLabel.text = "- liters"
@@ -188,29 +187,11 @@ class SettingViewController: UIViewController {
         
         guard let newWeightString = weightFormTextField.text, let newWeightInt = Double(newWeightString) else { return }
         
-        var targetValue: Double = 0
-        if newWeightInt >= 20 {
-            // the first 10kg => 1000 ml
-            // the second 10kg => 500 ml
-            targetValue += 1500
-        }
-        
-        let restOfWeight = newWeightInt - 20
-        if restOfWeight > 0 {
-            // the rest kg * 20ml for each kg
-            targetValue += restOfWeight * 20
-        }
-        
-        targetValue = ceil(targetValue * 100) / 100
-        
-        // set hydrate value in mili liter
-        UserDefaults.standard.set(targetValue, forKey: Constant.hydrateTargetValue)
-        
-        // set weight in user default in int
-        UserDefaults.standard.set(newWeightInt, forKey: Constant.hydrateWeightValue)
-        
+        DataServices.saveTarget(weight: newWeightInt)
+    
         // update the UI
-        self.hydrateTargetValueLabel.text = "\(targetValue / 1000) liters"
+        let target = DataServices.getTarget()
+        self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
     }
 }
 

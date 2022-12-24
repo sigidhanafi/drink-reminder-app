@@ -91,11 +91,15 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: "hydrateTargetValue")
-        circularProgressBarView.targetLayer.string = "\(hydrateTargetValue / 1000) liters"
+        updateProgressUI()
+    }
+    
+    private func updateProgressUI() {
+        let progress = DataServices.getProgress()
+        let percentage = ((progress.progress / progress.target) * 100) / 100
         
-        let hydrateProgressValue: Double = UserDefaults.standard.double(forKey: "hydrateProgressValue")
-        let percentage = ((hydrateProgressValue / hydrateTargetValue) * 100) / 100
+        // update UI
+        circularProgressBarView.targetLayer.string = "\(progress.target / 1000) liters"
         self.progress = CGFloat(percentage)
     }
     
@@ -130,60 +134,40 @@ class HomeViewController: UIViewController {
             guard let self = self else { return }
             
             // 240ml
-            let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue)
-            let percentage = ((240 / hydrateTargetValue) * 100) / 100
+            // save the progress in mili liter
+            DataServices.saveProgress(added: 240)
             
-            // update the progress percentage to render UI
-            self.progress += percentage
-            
-            // update the progress in mili liter
-            let hydrateProgressValue = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
-            UserDefaults.standard.set(hydrateProgressValue + 240, forKey: Constant.hydrateProgressValue)
+            self.updateProgressUI()
         }
         
         buttonDrink2.handler = { [weak self] in
             guard let self = self else { return }
             
             // 325ml
-            let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue)
-            let percentage = ((325 / hydrateTargetValue) * 100) / 100
+            // save the progress in mili liter
+            DataServices.saveProgress(added: 325)
             
-            // update the progress percentage to render UI
-            self.progress += percentage
-            
-            // update the progress in mili liter
-            let hydrateProgressValue = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
-            UserDefaults.standard.set(hydrateProgressValue + 325, forKey: Constant.hydrateProgressValue)
+            self.updateProgressUI()
         }
         
         buttonDrink3.handler = { [weak self] in
             guard let self = self else { return }
             
             // 600ml
-            let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue)
-            let percentage = ((600 / hydrateTargetValue) * 100) / 100
+            // save the progress in mili liter
+            DataServices.saveProgress(added: 600)
             
-            // update the progress percentage to render UI
-            self.progress += percentage
-            
-            // update the progress in mili liter
-            let hydrateProgressValue = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
-            UserDefaults.standard.set(hydrateProgressValue + 600, forKey: Constant.hydrateProgressValue)
+            self.updateProgressUI()
         }
         
         buttonDrink4.handler = { [weak self] in
             guard let self = self else { return }
             
             // 1200ml
-            let hydrateTargetValue: Double = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue)
-            let percentage = ((1200 / hydrateTargetValue) * 100) / 100
+            // save the progress in mili liter
+            DataServices.saveProgress(added: 1200)
             
-            // update the progress percentage to render UI
-            self.progress += percentage
-            
-            // update the progress in mili liter
-            let hydrateProgressValue = UserDefaults.standard.double(forKey: Constant.hydrateProgressValue)
-            UserDefaults.standard.set(hydrateProgressValue + 1200, forKey: Constant.hydrateProgressValue)
+            self.updateProgressUI()
         }
     }
     

@@ -10,5 +10,4 @@ import Foundation
 struct Constant {
     static let hydrateWeightValue: String = "hydrateWeightValue"
     static let hydrateTargetValue: String = "hydrateTargetValue"
-    static let hydrateProgressValue: String = "hydrateProgressValue"
 }

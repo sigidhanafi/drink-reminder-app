@@ -18,8 +18,8 @@
 		D817B0342956119800CB5633 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0332956119800CB5633 /* UserDefaults.swift */; };
 		D817B0362956168500CB5633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0352956168500CB5633 /* Constants.swift */; };
 		D817B0392956C49F00CB5633 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0382956C49F00CB5633 /* DataServices.swift */; };
-		D817B03C2956C69D00CB5633 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03B2956C69D00CB5633 /* Progress.swift */; };
-		D817B03E2956CACE00CB5633 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03D2956CACE00CB5633 /* Target.swift */; };
+		D817B03C2956C69D00CB5633 /* ProgressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03B2956C69D00CB5633 /* ProgressData.swift */; };
+		D817B03E2956CACE00CB5633 /* TargetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03D2956CACE00CB5633 /* TargetData.swift */; };
 		D817B0402956D6B200CB5633 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B03F2956D6B200CB5633 /* HomeViewModel.swift */; };
 		D817B04229583A2F00CB5633 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B04129583A2F00CB5633 /* SettingViewModel.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
@@ -40,8 +40,8 @@
 		D817B0332956119800CB5633 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D817B0352956168500CB5633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D817B0382956C49F00CB5633 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
-		D817B03B2956C69D00CB5633 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
-		D817B03D2956CACE00CB5633 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		D817B03B2956C69D00CB5633 /* ProgressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressData.swift; sourceTree = "<group>"; };
+		D817B03D2956CACE00CB5633 /* TargetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetData.swift; sourceTree = "<group>"; };
 		D817B03F2956D6B200CB5633 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D817B04129583A2F00CB5633 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		D817B03A2956C68900CB5633 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D817B03B2956C69D00CB5633 /* Progress.swift */,
-				D817B03D2956CACE00CB5633 /* Target.swift */,
+				D817B03B2956C69D00CB5633 /* ProgressData.swift */,
+				D817B03D2956CACE00CB5633 /* TargetData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 				3E592EFF26532E4D00FCC102 /* HomeViewController.swift in Sources */,
 				D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */,
 				D817B0362956168500CB5633 /* Constants.swift in Sources */,
-				D817B03C2956C69D00CB5633 /* Progress.swift in Sources */,
+				D817B03C2956C69D00CB5633 /* ProgressData.swift in Sources */,
 				D817B0392956C49F00CB5633 /* DataServices.swift in Sources */,
-				D817B03E2956CACE00CB5633 /* Target.swift in Sources */,
+				D817B03E2956CACE00CB5633 /* TargetData.swift in Sources */,
 				D817B0402956D6B200CB5633 /* HomeViewModel.swift in Sources */,
 				D817B04229583A2F00CB5633 /* SettingViewModel.swift in Sources */,
 				D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */,

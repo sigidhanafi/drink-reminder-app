@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Target {
+struct TargetData {
     internal let target: Double
     internal let weight: Double
 }

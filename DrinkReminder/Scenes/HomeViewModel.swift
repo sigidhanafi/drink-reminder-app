@@ -17,39 +17,36 @@ class HomeViewModel {
         self.dataService = dataService
     }
     
-    internal func didLoadTrigger() {
+    private func updateUI() {
         let progress = dataService.getProgress()
-        let percentage = ((progress.progress / progress.target) * 100) / 100
         
-        // update UI target label
-        let targetLabel = "\(progress.target / 1000) liters"
-        self.targetLabel?(targetLabel)
-        
-        self.progressPercentage?(CGFloat(percentage))
+        switch progress {
+        case let .success(data):
+            let percentage = ((data.progress / data.target) * 100) / 100
+            
+            // update UI target label
+            let targetLabel = "\(data.target / 1000) liters"
+            self.targetLabel?(targetLabel)
+            
+            self.progressPercentage?(CGFloat(percentage))
+        case let .failure(error):
+            print(error.description)
+        }
     }
     
     internal func willAppearTrigger() {
-        let progress = dataService.getProgress()
-        let percentage = ((progress.progress / progress.target) * 100) / 100
-        
-        // update UI target label
-        let targetLabel = "\(progress.target / 1000) liters"
-        self.targetLabel?(targetLabel)
-        
-        self.progressPercentage?(CGFloat(percentage))
+        self.updateUI()
     }
     
     internal func saveProgress(added: Double) {
-        dataService.saveProgress(added: added)
-        
-        let progress = dataService.getProgress()
-        let percentage = ((progress.progress / progress.target) * 100) / 100
-        
-        // update UI target label
-        let targetLabel = "\(progress.target / 1000) liters"
-        self.targetLabel?(targetLabel)
-        
-        self.progressPercentage?(CGFloat(percentage))
+        let result = dataService.saveProgress(added: added)
+        switch result {
+        case let .success(message):
+            self.updateUI()
+            print(message)
+        case let .failure(error):
+            print(error)
+        }
     }
     
     internal func btnDrink1Trigger() {

@@ -10,7 +10,7 @@ import UIKit
 class SettingViewController: UIViewController {
     
     // MARK: properties
-    private let dataService = DataServices()
+    private let viewModel = SettingViewModel(dataService: DataServices())
     
     // MARK: views
     private let contentStackView: UIStackView = {
@@ -123,15 +123,26 @@ class SettingViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         setupNavigation()
+        
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+                
+        self.viewModel.willAppearTrigger()
+    }
+    
+    private func bindViewModel() {
+        self.viewModel.targetLabel = { [weak self] targetLabel in
+            self?.hydrateTargetValueLabel.text = targetLabel
+            self?.view.setNeedsLayout()
+        }
         
-        let target = self.dataService.getTarget()
-        
-        self.weightFormTextField.text = "\(target.weight)"
-        self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
+        self.viewModel.weightLabel = {[weak self] weight in
+            self?.weightFormTextField.text = "\(weight)"
+            self?.view.setNeedsLayout()
+        }
     }
     
     private func setupView() {
@@ -176,23 +187,16 @@ class SettingViewController: UIViewController {
     }
     
     private func resetData() {
-        dataService.reset()
         
-        self.weightFormTextField.text = ""
-        self.hydrateTargetValueLabel.text = "- liters"
-        self.view.setNeedsLayout()
+        self.viewModel.reset()
     }
     
     @objc private func dismissKeyboard() {
         self.view.endEditing(true)
         
-        guard let newWeightString = weightFormTextField.text, let newWeightInt = Double(newWeightString) else { return }
+        guard let newWeightString = weightFormTextField.text, let newWeightDouble = Double(newWeightString) else { return }
         
-        dataService.saveTarget(weight: newWeightInt)
-    
-        // update the UI
-        let target = dataService.getTarget()
-        self.hydrateTargetValueLabel.text = "\(target.target / 1000) liters"
+        self.viewModel.saveTarget(weight: newWeightDouble)
     }
 }
 

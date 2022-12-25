@@ -52,4 +52,28 @@ class HomeViewModel {
         self.progressPercentage?(CGFloat(percentage))
     }
     
+    internal func btnDrink1Trigger() {
+        // 240ml
+        // save the progress in mili liter
+        self.saveProgress(added: 240)
+    }
+    
+    internal func btnDrink2Trigger() {
+        // 325ml
+        // save the progress in mili liter
+        self.saveProgress(added: 325)
+    }
+    
+    internal func btnDrink3Trigger() {
+        // 600ml
+        // save the progress in mili liter
+        self.saveProgress(added: 600)
+    }
+    
+    internal func btnDrink4Trigger() {
+        // 1200ml
+        // save the progress in mili liter
+        self.saveProgress(added: 1200)
+    }
+    
 }

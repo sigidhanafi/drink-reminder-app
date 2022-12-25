@@ -9,5 +9,5 @@ import Foundation
 
 struct Target {
     internal let target: Double
-    internal let weight: Int
+    internal let weight: Double
 }

@@ -137,33 +137,25 @@ class HomeViewController: UIViewController {
         buttonDrink1.handler = { [weak self] in
             guard let self = self else { return }
             
-            // 240ml
-            // save the progress in mili liter
-            self.viewModel.saveProgress(added: 240)
+            self.viewModel.btnDrink1Trigger()
         }
         
         buttonDrink2.handler = { [weak self] in
             guard let self = self else { return }
-
-            // 325ml
-            // save the progress in mili liter
-            self.viewModel.saveProgress(added: 325)
+            
+            self.viewModel.btnDrink2Trigger()
         }
         
         buttonDrink3.handler = { [weak self] in
             guard let self = self else { return }
-
-            // 600ml
-            // save the progress in mili liter
-            self.viewModel.saveProgress(added: 600)
+            
+            self.viewModel.btnDrink3Trigger()
         }
         
         buttonDrink4.handler = { [weak self] in
             guard let self = self else { return }
             
-            // 1200ml
-            // save the progress in mili liter
-            self.viewModel.saveProgress(added: 1200)
+            self.viewModel.btnDrink4Trigger()
         }
     }
     

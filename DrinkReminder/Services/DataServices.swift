@@ -46,7 +46,7 @@ final class DataServices: DataServiceProtocol {
     }
     
     internal func getTarget() -> Target {
-        let weight = UserDefaults.standard.integer(forKey: Constant.hydrateWeightValue)
+        let weight = UserDefaults.standard.double(forKey: Constant.hydrateWeightValue)
         let hydrateTargetValue = UserDefaults.standard.double(forKey: Constant.hydrateTargetValue) // in mili liter
         
         return Target(target: hydrateTargetValue, weight: weight)

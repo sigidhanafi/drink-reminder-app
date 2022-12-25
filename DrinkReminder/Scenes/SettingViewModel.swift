@@ -29,7 +29,24 @@ internal class SettingViewModel {
     }
     
     internal func saveTarget(weight: Double) {
-        self.dataService.saveTarget(weight: weight)
+        
+        // calculate target based on weight
+        var targetValue: Double = 0
+        if weight >= 20 {
+            // the first 10kg => 1000 ml
+            // the second 10kg => 500 ml
+            targetValue += 1500
+        }
+        
+        let restOfWeight = weight - 20
+        if restOfWeight > 0 {
+            // the rest kg * 20ml for each kg
+            targetValue += restOfWeight * 20
+        }
+        
+        targetValue = ceil(targetValue * 100) / 100
+        
+        self.dataService.saveTarget(weight: weight, target: targetValue)
         
         self.updateTargetUI()
     }

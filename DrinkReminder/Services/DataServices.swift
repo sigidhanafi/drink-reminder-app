@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataServiceProtocol {
-    func saveTarget(weight: Double)
+    func saveTarget(weight: Double, target: Double)
     func getTarget() -> Target
     func getProgress() -> Progress
     func getHistory()
@@ -19,27 +19,12 @@ protocol DataServiceProtocol {
 
 final class DataServices: DataServiceProtocol {
     
-    internal func saveTarget(weight: Double) {
+    internal func saveTarget(weight: Double, target: Double) {
         // save weight
         // save target value
         
-        var targetValue: Double = 0
-        if weight >= 20 {
-            // the first 10kg => 1000 ml
-            // the second 10kg => 500 ml
-            targetValue += 1500
-        }
-        
-        let restOfWeight = weight - 20
-        if restOfWeight > 0 {
-            // the rest kg * 20ml for each kg
-            targetValue += restOfWeight * 20
-        }
-        
-        targetValue = ceil(targetValue * 100) / 100
-        
         // set hydrate value in mili liter
-        UserDefaults.standard.set(targetValue, forKey: Constant.hydrateTargetValue)
+        UserDefaults.standard.set(target, forKey: Constant.hydrateTargetValue)
         
         // set weight in user default in int
         UserDefaults.standard.set(weight, forKey: Constant.hydrateWeightValue)

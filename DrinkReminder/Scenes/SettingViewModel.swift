@@ -13,6 +13,7 @@ internal class SettingViewModel {
     
     internal var weightLabel: ((String) -> Void)?
     internal var targetLabel: ((String) -> Void)?
+    internal var errorWeightMessage: ((String) -> Void)?
     
     internal init(dataService: DataServiceProtocol) {
         self.dataService = dataService
@@ -28,17 +29,27 @@ internal class SettingViewModel {
         self.updateTargetUI()
     }
     
-    internal func saveTarget(weight: Double) {
+    internal func saveTarget(weightString: String?) {
+        
+        guard let newWeightString = weightString,
+              newWeightString != "",
+              let weightDouble = Double(newWeightString),
+              weightDouble >= 0,
+              weightDouble <= 300
+        else {
+            self.errorWeightMessage?("Weight is invalid. Please try again.")
+            return
+        }
         
         // calculate target based on weight
         var targetValue: Double = 0
-        if weight >= 20 {
+        if weightDouble >= 20 {
             // the first 10kg => 1000 ml
             // the second 10kg => 500 ml
             targetValue += 1500
         }
         
-        let restOfWeight = weight - 20
+        let restOfWeight = weightDouble - 20
         if restOfWeight > 0 {
             // the rest kg * 20ml for each kg
             targetValue += restOfWeight * 20
@@ -46,7 +57,7 @@ internal class SettingViewModel {
         
         targetValue = ceil(targetValue * 100) / 100
         
-        self.dataService.saveTarget(weight: weight, target: targetValue)
+        self.dataService.saveTarget(weight: weightDouble, target: targetValue)
         
         self.updateTargetUI()
     }

@@ -143,6 +143,16 @@ class SettingViewController: UIViewController {
             self?.weightFormTextField.text = "\(weight)"
             self?.view.setNeedsLayout()
         }
+        
+        self.viewModel.errorWeightMessage = { [weak self] message in
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            self?.present(alert, animated: true, completion: { [weak self] in
+                self?.weightFormTextField.becomeFirstResponder()
+            })
+        }
     }
     
     private func setupView() {
@@ -194,9 +204,7 @@ class SettingViewController: UIViewController {
     @objc private func dismissKeyboard() {
         self.view.endEditing(true)
         
-        guard let newWeightString = weightFormTextField.text, let newWeightDouble = Double(newWeightString) else { return }
-        
-        self.viewModel.saveTarget(weight: newWeightDouble)
+        self.viewModel.saveTarget(weightString: weightFormTextField.text)
     }
 }
 

@@ -181,11 +181,26 @@ class SettingViewController: UIViewController {
     
     private func setupNavigation() {
         // adding add button on the right bar button item
-        let addBarButtonItem = UIBarButtonItem(title: "Reset Data", style: .plain, target: self, action: #selector(showConfirmationResetData))
+        let addBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(showActionMenu))
         navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
-    @objc private func showConfirmationResetData() {
+    @objc private func showActionMenu() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    
+        alert.addAction(UIAlertAction(title: "Progress History", style: .default, handler: { [weak self] _ in
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Reset Data", style: .default, handler: { [weak self] _ in
+            self?.showConfirmationResetData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true)
+    }
+    
+    private func showConfirmationResetData() {
         let alert = UIAlertController(title: "Reset Data", message: "Are you sure to reset all data?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

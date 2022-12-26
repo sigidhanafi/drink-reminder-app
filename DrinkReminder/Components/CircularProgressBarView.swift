@@ -60,15 +60,17 @@ class CircularProgressBarView: UIView {
         targetLayer.alignmentMode = .center
         targetLayer.truncationMode = .end
         targetLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 100, y: 0 + 20, width: 200, height: 100)
+        targetLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(targetLayer)
         
-        percentageLayer.fontSize = 44
+        percentageLayer.fontSize = 56
         percentageLayer.string = "100%"
         percentageLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
         percentageLayer.isWrapped = true
         percentageLayer.alignmentMode = .center
         percentageLayer.truncationMode = .end
         percentageLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 100, y: 0 - 40, width: 200, height: 100)
+        percentageLayer.contentsScale = UIScreen.main.scale
         layer.addSublayer(percentageLayer)
     }
     

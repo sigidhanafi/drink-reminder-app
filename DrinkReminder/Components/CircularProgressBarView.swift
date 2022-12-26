@@ -9,9 +9,13 @@ import UIKit
 
 class CircularProgressBarView: UIView {
     
+    // MARK: view
     private var circleLayer = CAShapeLayer()
     private var progressLayer = CAShapeLayer()
     internal var targetLayer = CATextLayer()
+    internal var percentageLayer = CATextLayer()
+    
+    // MARK: properties
     private let startPoint = CGFloat(-Double.pi / 2)
     private let endPoint = CGFloat(3 * Double.pi / 2)
     
@@ -49,14 +53,23 @@ class CircularProgressBarView: UIView {
         // added progressLayer to layer
         layer.addSublayer(progressLayer)
         
-        targetLayer.fontSize = 32
-        targetLayer.string = "0 liters"
+        targetLayer.fontSize = 16
+        targetLayer.string = "0.25 of 2 liters"
         targetLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
         targetLayer.isWrapped = true
         targetLayer.alignmentMode = .center
         targetLayer.truncationMode = .end
-        targetLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 50, y: 0 - 40, width: 100, height: 100)
+        targetLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 100, y: 0 + 20, width: 200, height: 100)
         layer.addSublayer(targetLayer)
+        
+        percentageLayer.fontSize = 44
+        percentageLayer.string = "100%"
+        percentageLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+        percentageLayer.isWrapped = true
+        percentageLayer.alignmentMode = .center
+        percentageLayer.truncationMode = .end
+        percentageLayer.frame = CGRect(x: UIScreen.main.bounds.width/2 - 100, y: 0 - 40, width: 200, height: 100)
+        layer.addSublayer(percentageLayer)
     }
     
     internal func progressAnimation(fromValue: CGFloat, toValue: CGFloat) {

@@ -12,6 +12,7 @@ class HomeViewModel {
     
     internal var targetLabel: ((String) -> Void)?
     internal var progressPercentage: ((CGFloat) -> Void)?
+    internal var percentageLabel: ((String) -> Void)?
     
     init(dataService: DataServices) {
         self.dataService = dataService
@@ -22,13 +23,24 @@ class HomeViewModel {
         
         switch progress {
         case let .success(data):
-            let percentage = ((data.progress / data.target) * 100) / 100
+            var percentage: Double = 0
+            var targetLabel = "target doesn't set"
+            var percentageLabel = "0%"
+            if data.target > 0 {
+                percentage = ((data.progress / data.target) * 100) / 100
+                targetLabel = "\(data.progress / 1000) of \(data.target / 1000) liters"
+                
+                let percentageCeil = Int(ceil(percentage * 100))
+                percentageLabel = "\(percentageCeil)%"
+            }
             
             // update UI target label
-            let targetLabel = "\(data.target / 1000) liters"
             self.targetLabel?(targetLabel)
             
             self.progressPercentage?(CGFloat(percentage))
+            
+            self.percentageLabel?(percentageLabel)
+            
         case let .failure(error):
             print(error.description)
         }

@@ -105,6 +105,10 @@ class HomeViewController: UIViewController {
         viewModel.progressPercentage = { [weak self] percentage in
             self?.progress = percentage
         }
+        
+        viewModel.percentageLabel = { [weak self] label in
+            self?.circularProgressBarView.percentageLayer.string = label
+        }
     }
     
     private func setupView() {

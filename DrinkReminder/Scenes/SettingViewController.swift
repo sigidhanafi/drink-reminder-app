@@ -76,6 +76,10 @@ class SettingViewController: UIViewController {
         field.placeholder = "70"
         field.borderStyle = .roundedRect
         field.textColor = UIColor.black.withAlphaComponent(0.5)
+//        field.backgroundColor = .clear
+//        field.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
+//        field.layer.borderWidth = 1
+//        field.layer.cornerRadius = 4
         field.translatesAutoresizingMaskIntoConstraints = false
         field.returnKeyType = .done
         
@@ -172,7 +176,7 @@ class SettingViewController: UIViewController {
             contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             contentStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
             contentStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
-            deviderHeaderView.heightAnchor.constraint(equalToConstant: 70),
+            deviderHeaderView.heightAnchor.constraint(equalToConstant: 60),
             deviderHeaderView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
             hydrateTargetLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor),
             hydrateTargetValueLabel.widthAnchor.constraint(equalTo: contentStackView.widthAnchor)

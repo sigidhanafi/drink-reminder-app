@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class HomeViewController: UIViewController {
     
@@ -89,6 +90,25 @@ class HomeViewController: UIViewController {
         setupNavigation()
         setupAction()
         bindViewModel()
+        
+//        UNUserNotificationCenter.current().requestAuthorization(options:[.alert, .badge, .sound]) { success, error in
+//            if success {
+//                print("Notification set")
+//            } else {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//        
+//        let content = UNMutableNotificationContent()
+//        content.title = "Sluuurrp!"
+//        content.subtitle = "It's time to hydrate and stay healthy!"
+//        content.sound = UNNotificationSound.default
+//        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+//        
+//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//        
+//        UNUserNotificationCenter.current().add(request)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,7 +185,7 @@ class HomeViewController: UIViewController {
     
     private func setupNavigation() {
         // adding add button on the right bar button item
-        let addBarButtonItem = UIBarButtonItem(title: "Setting", style: .plain, target: self, action: #selector(navigateToSetting))
+        let addBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(navigateToSetting))
         navigationItem.rightBarButtonItem = addBarButtonItem
     }
     

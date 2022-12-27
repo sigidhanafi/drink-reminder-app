@@ -24,6 +24,7 @@
 		D817B04229583A2F00CB5633 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B04129583A2F00CB5633 /* SettingViewModel.swift */; };
 		D817B0442959783900CB5633 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0432959783900CB5633 /* HistoryViewController.swift */; };
 		D817B04629597D0600CB5633 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B04529597D0600CB5633 /* HistoryViewModel.swift */; };
+		D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0472959EF0C00CB5633 /* UIColor.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		D817B04129583A2F00CB5633 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		D817B0432959783900CB5633 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		D817B04529597D0600CB5633 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		D817B0472959EF0C00CB5633 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				D817B0332956119800CB5633 /* UserDefaults.swift */,
 				3E592F1426532FD200FCC102 /* UIImage+color.swift */,
 				D817B0352956168500CB5633 /* Constants.swift */,
+				D817B0472959EF0C00CB5633 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */,
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,
 				3E592EFD26532E4D00FCC102 /* SceneDelegate.swift in Sources */,
+				D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

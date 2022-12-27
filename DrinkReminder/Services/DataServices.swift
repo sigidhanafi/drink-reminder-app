@@ -78,11 +78,19 @@ final class DataServices: DataServiceProtocol {
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         
+        // get current date
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss:Z"
+        dateFormatter.timeZone = calendar.timeZone
+
         let dateFrom = calendar.startOfDay(for: Date())
         guard let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom) else { return .failure(DataServiceError.getDataError) }
 
-        fetchRequest.predicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
-        fetchRequest.predicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+//        fetchRequest.predicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+//        fetchRequest.predicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+        
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", dateFrom as NSDate, dateTo as NSDate)
         
         var progress: Double = 0
         

@@ -76,10 +76,7 @@ class SettingViewController: UIViewController {
         field.placeholder = "70"
         field.borderStyle = .roundedRect
         field.textColor = UIColor.black.withAlphaComponent(0.5)
-//        field.backgroundColor = .clear
-//        field.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
-//        field.layer.borderWidth = 1
-//        field.layer.cornerRadius = 4
+        field.keyboardType = .numberPad
         field.translatesAutoresizingMaskIntoConstraints = false
         field.returnKeyType = .done
         
@@ -96,7 +93,7 @@ class SettingViewController: UIViewController {
         let label = UILabel()
         label.text = "please drink at least"
         label.font = .systemFont(ofSize: 16)
-        label.textColor = UIColor.blue.withAlphaComponent(0.5)
+        label.textColor = UIColor.primaryBlue
         label.numberOfLines = 1
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +105,7 @@ class SettingViewController: UIViewController {
         let label = UILabel()
         label.text = "- liters"
         label.font = .systemFont(ofSize: 64)
-        label.textColor = UIColor.blue.withAlphaComponent(0.5)
+        label.textColor = UIColor.primaryBlue
         label.numberOfLines = 1
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false

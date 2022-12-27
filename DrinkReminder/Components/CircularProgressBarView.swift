@@ -37,7 +37,7 @@ class CircularProgressBarView: UIView {
         circleLayer.lineCap = .round
         circleLayer.lineWidth = 20.0
         circleLayer.strokeEnd = 1.0
-        circleLayer.strokeColor = UIColor.blue.withAlphaComponent(0.1).cgColor
+        circleLayer.strokeColor = UIColor.secondaryBlue.cgColor
         
         // added circleLayer to layer
         layer.addSublayer(circleLayer)
@@ -48,14 +48,14 @@ class CircularProgressBarView: UIView {
         progressLayer.lineCap = .round
         progressLayer.lineWidth = 15.0
         progressLayer.strokeEnd = 0
-        progressLayer.strokeColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+        progressLayer.strokeColor = UIColor.primaryBlue.cgColor
         
         // added progressLayer to layer
         layer.addSublayer(progressLayer)
         
         targetLayer.fontSize = 16
         targetLayer.string = "0.25 of 2 liters"
-        targetLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+        targetLayer.foregroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
         targetLayer.isWrapped = true
         targetLayer.alignmentMode = .center
         targetLayer.truncationMode = .end
@@ -65,7 +65,7 @@ class CircularProgressBarView: UIView {
         
         percentageLayer.fontSize = 56
         percentageLayer.string = "100%"
-        percentageLayer.foregroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+        percentageLayer.foregroundColor = UIColor.primaryBlue.cgColor
         percentageLayer.isWrapped = true
         percentageLayer.alignmentMode = .center
         percentageLayer.truncationMode = .end

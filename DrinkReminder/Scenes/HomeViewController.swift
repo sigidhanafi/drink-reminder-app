@@ -90,25 +90,6 @@ class HomeViewController: UIViewController {
         setupNavigation()
         setupAction()
         bindViewModel()
-        
-//        UNUserNotificationCenter.current().requestAuthorization(options:[.alert, .badge, .sound]) { success, error in
-//            if success {
-//                print("Notification set")
-//            } else {
-//                print(error?.localizedDescription)
-//            }
-//        }
-//        
-//        let content = UNMutableNotificationContent()
-//        content.title = "Sluuurrp!"
-//        content.subtitle = "It's time to hydrate and stay healthy!"
-//        content.sound = UNNotificationSound.default
-//        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
-//        
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//        
-//        UNUserNotificationCenter.current().add(request)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,13 +166,49 @@ class HomeViewController: UIViewController {
     
     private func setupNavigation() {
         // adding add button on the right bar button item
-        let addBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(navigateToSetting))
+        let addBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(showActionMenu))
         navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
-    @objc private func navigateToSetting() {
-        let settingViewController = SettingViewController()
-        self.navigationController?.pushViewController(settingViewController, animated: true)
+    private func showConfirmationResetData() {
+        let alert = UIAlertController(title: "Reset Data", message: "Are you sure to reset all data?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { [weak self] _ in
+            self?.resetData()
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func resetData() {
+        self.viewModel.reset()
+    }
+    
+    @objc private func showActionMenu() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Setting Target", style: .default, handler: { [weak self] _ in
+            let settingViewController = SettingViewController()
+            self?.navigationController?.pushViewController(settingViewController, animated: true)
+        }))
+    
+        alert.addAction(UIAlertAction(title: "Progress", style: .default, handler: { [weak self] _ in
+            let historyVC = HistoryViewController()
+            self?.navigationController?.pushViewController(historyVC, animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Notification", style: .default, handler: { [weak self] _ in
+            let notifVC = NotificationViewController()
+            self?.navigationController?.pushViewController(notifVC, animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Reset Data", style: .default, handler: { [weak self] _ in
+            self?.showConfirmationResetData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true)
     }
 
 }

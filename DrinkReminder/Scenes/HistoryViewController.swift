@@ -11,7 +11,7 @@ class HistoryViewController: UIViewController {
     
     // MARK: properties
     private let viewModel = HistoryViewModel(dataService: DataServices())
-    private var progressData = [ProgressData]()
+    private var progressStat = [ProgressStat]()
     
     // MARK: views
     private let tableView: UITableView = {
@@ -35,8 +35,8 @@ class HistoryViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        self.viewModel.progressData = { [weak self] data in
-            self?.progressData = data
+        self.viewModel.progressStat = { [weak self] data in
+            self?.progressStat = data
             self?.tableView.reloadData()
         }
     }
@@ -44,7 +44,7 @@ class HistoryViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         
-        title = "History"
+        title = "Progress"
         
         view.addSubview(tableView)
         
@@ -63,7 +63,7 @@ extension HistoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return progressData.count
+        return progressStat.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,14 +72,8 @@ extension HistoryViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "cellIdentifier")
         }
         
-        cell?.textLabel?.text = "\(progressData[indexPath.row].progress) mililiters"
-        
-        let date = progressData[indexPath.row].date
-        let dateformate = DateFormatter()
-        dateformate.dateFormat = "dd-MM-yyyy HH:mm"
-        let dateFormated = dateformate.string(from: date)
-        
-        cell?.detailTextLabel?.text = "\(dateFormated)"
+        cell?.textLabel?.text = "\(progressStat[indexPath.row].value) mililiters"
+        cell?.detailTextLabel?.text = progressStat[indexPath.row].key
         
         return cell ?? UITableViewCell()
     }

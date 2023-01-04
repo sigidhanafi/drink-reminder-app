@@ -23,19 +23,6 @@ internal class SettingViewModel {
         self.updateTargetUI()
     }
     
-    internal func reset() {
-        let result = self.dataService.resetProgress()
-        
-        switch result {
-        case let .failure(error):
-            print(error.description)
-        case let .success(message):
-            print(message)
-            self.dataService.resetTarget()
-            self.updateTargetUI()
-        }
-    }
-    
     internal func saveTarget(weightString: String?) {
         
         guard let newWeightString = weightString,

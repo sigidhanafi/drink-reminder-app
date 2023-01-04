@@ -10,7 +10,7 @@ import Foundation
 internal class HistoryViewModel {
     private let dataService: DataServiceProtocol
     
-    internal var progressData: (([ProgressData]) -> Void)?
+    internal var progressStat: (([ProgressStat]) -> Void)?
     
     internal init(dataService: DataServiceProtocol) {
         self.dataService = dataService
@@ -21,7 +21,27 @@ internal class HistoryViewModel {
         
         switch result {
         case let .success(data):
-            self.progressData?(data)
+            
+            var progressData: [String: Double] = [:]
+            
+            for progress in data {
+                let dateformatter = DateFormatter()
+                dateformatter.dateFormat = "yyy-MM-dd"
+                let date = dateformatter.string(from: progress.date)
+                
+                progressData[date] = (progressData[date] ?? 0) + progress.progress
+            }
+            
+            var stats = [ProgressStat]()
+            
+            for (key, value) in progressData {
+                print(value)
+                let stat = ProgressStat(key: key, value: value)
+                stats.append(stat)
+            }
+            
+            
+            self.progressStat?(stats)
         case let .failure(error):
             print(error)
         }

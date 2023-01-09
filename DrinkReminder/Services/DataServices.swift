@@ -117,7 +117,7 @@ final class DataServices: DataServiceProtocol {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Progress")
 
         // add sort when fetch request
-        let sortByDate = NSSortDescriptor.init(key: "date", ascending: false)
+        let sortByDate = NSSortDescriptor.init(key: "date", ascending: true)
         fetchRequest.sortDescriptors = [sortByDate] // insert in array if want to multiple sort
 
         do {

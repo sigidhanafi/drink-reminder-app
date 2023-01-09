@@ -9,5 +9,5 @@ import Foundation
 
 struct ProgressStat {
     internal let key: String
-    internal let value: Double
+    internal var value: Double
 }

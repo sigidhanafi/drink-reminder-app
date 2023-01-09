@@ -22,25 +22,23 @@ internal class HistoryViewModel {
         switch result {
         case let .success(data):
             
-            var progressData: [String: Double] = [:]
+            var progressData = [ProgressStat]()
             
             for progress in data {
                 let dateformatter = DateFormatter()
                 dateformatter.dateFormat = "dd/MM"
                 let date = dateformatter.string(from: progress.date)
                 
-                progressData[date] = (progressData[date] ?? 0) + progress.progress
+                if let index = progressData.firstIndex(where: { $0.key == date }) {
+                    progressData[index].value += progress.progress
+                } else {
+                    let stat = ProgressStat(key: date, value: progress.progress)
+                    progressData.append(stat)
+                }
             }
             
-            var stats = [ProgressStat]()
             
-            for (key, value) in progressData {
-                let stat = ProgressStat(key: key, value: value)
-                stats.append(stat)
-            }
-            
-            
-            self.progressStat?(stats)
+            self.progressStat?(progressData)
         case let .failure(error):
             print(error)
         }

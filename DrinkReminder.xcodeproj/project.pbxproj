@@ -24,7 +24,7 @@
 		D817B04229583A2F00CB5633 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B04129583A2F00CB5633 /* SettingViewModel.swift */; };
 		D817B0442959783900CB5633 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0432959783900CB5633 /* HistoryViewController.swift */; };
 		D817B04629597D0600CB5633 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B04529597D0600CB5633 /* HistoryViewModel.swift */; };
-		D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0472959EF0C00CB5633 /* UIColor.swift */; };
+		D817B0482959EF0C00CB5633 /* UIColor+ColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0472959EF0C00CB5633 /* UIColor+ColorName.swift */; };
 		D8283F9E2963232D008B104E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9D2963232D008B104E /* NotificationViewController.swift */; };
 		D8283FA02965A351008B104E /* ProgressStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9F2965A351008B104E /* ProgressStat.swift */; };
 		D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283FA12965CF8A008B104E /* CustomGraph.swift */; };
@@ -53,7 +53,7 @@
 		D817B04129583A2F00CB5633 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		D817B0432959783900CB5633 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		D817B04529597D0600CB5633 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		D817B0472959EF0C00CB5633 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D817B0472959EF0C00CB5633 /* UIColor+ColorName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorName.swift"; sourceTree = "<group>"; };
 		D8283F9D2963232D008B104E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D8283F9F2965A351008B104E /* ProgressStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStat.swift; sourceTree = "<group>"; };
 		D8283FA12965CF8A008B104E /* CustomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraph.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				D817B0332956119800CB5633 /* UserDefaults.swift */,
 				3E592F1426532FD200FCC102 /* UIImage+Color.swift */,
 				D817B0352956168500CB5633 /* Constants.swift */,
-				D817B0472959EF0C00CB5633 /* UIColor.swift */,
+				D817B0472959EF0C00CB5633 /* UIColor+ColorName.swift */,
 				D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */,
 			);
 			path = Extensions;
@@ -251,7 +251,7 @@
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,
 				D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */,
 				3E592EFD26532E4D00FCC102 /* SceneDelegate.swift in Sources */,
-				D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */,
+				D817B0482959EF0C00CB5633 /* UIColor+ColorName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

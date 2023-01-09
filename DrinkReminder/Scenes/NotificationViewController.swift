@@ -102,6 +102,8 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Notification"
+        
         view.backgroundColor = .white
         
         morningStackView.addArrangedSubview(morningLabel)

@@ -53,21 +53,31 @@ class HistoryViewController: UIViewController {
             // the biggest achievement in ml, will be used as a 100% standard
             guard let maxValue = data.map({ $0.value }).max() else { return }
             
-            
             // update view stat / grapth
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                let parentHeight = self?.statStackView.frame.height ?? 0
-                let parentWidth = self?.statStackView.frame.width ?? 0
+            DispatchQueue.main.async {
+                guard let parentHeight = self?.statStackView.frame.height,
+                      let parentWidth = self?.statStackView.frame.width
+                else { return }
+
                 for d in data {
-                    let percentageValue = ((d.value / maxValue) * 100) / 100
-                    
-                    // calculate frame and height
-                    let graphFrame = CGRect(x: 0, y: 0, width: parentWidth / 7, height: floor(percentageValue * (parentHeight - 50)))
-                    
-                    let statDay11 = CustomGraph(frame: graphFrame, title: d.key)
-                    self?.statStackView.addArrangedSubview(statDay11)
+                    // do not have any data
+                    if maxValue == 0 {
+                        // calculate frame and height
+                        let graphFrame = CGRect(x: 0, y: 0, width: parentWidth / 7, height: 0)
+
+                        let statDay11 = CustomGraph(frame: graphFrame, title: d.key)
+                        self?.statStackView.addArrangedSubview(statDay11)
+                    } else {
+                        let percentageValue = ((d.value / maxValue) * 100) / 100
+
+                        // calculate frame and height
+                        let graphFrame = CGRect(x: 0, y: 0, width: parentWidth / 7, height: floor(percentageValue * (parentHeight - 50)))
+
+                        let statDay11 = CustomGraph(frame: graphFrame, title: d.key)
+                        self?.statStackView.addArrangedSubview(statDay11)
+                    }
                 }
-            })
+            }
         }
     }
     

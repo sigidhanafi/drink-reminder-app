@@ -58,25 +58,25 @@ class HomeViewController: UIViewController {
     }()
     
     private let buttonDrink1: CustomButton = {
-        let button = CustomButton(title: "small \n cup")
+        let button = CustomButton(title: "120ml")
         
         return button
     }()
     
     private let buttonDrink2: CustomButton = {
-        let button = CustomButton(title: "medium \n cup")
+        let button = CustomButton(title: "240ml")
         
         return button
     }()
     
     private let buttonDrink3: CustomButton = {
-        let button = CustomButton(title: "small \n bottle")
+        let button = CustomButton(title: "325ml")
         
         return button
     }()
     
     private let buttonDrink4: CustomButton = {
-        let button = CustomButton(title: "medium \n bottle")
+        let button = CustomButton(title: "600ml")
         
         return button
     }()
@@ -208,6 +208,10 @@ class HomeViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // ipad show menu
+        alert.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        
         self.present(alert, animated: true)
     }
 

@@ -21,50 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().requestAuthorization(options:[.alert, .badge, .sound]) { success, error in
             if success {
-                // print("Notification set")
+                print("Notification set")
             } else {
                 // print(error)
                 print("Notification not allowed by users")
             }
         }
-        
-        // UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
-//        UNUserNotificationCenter.current().getNotificationSettings { settings in
-//            if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-//                print("Notification authorized")
-//
-//                let content = UNMutableNotificationContent()
-//                content.title = "Sluuurrp!"
-//                content.subtitle = "It's time to hydrate and stay healthy!"
-//                content.sound = UNNotificationSound.default
-//
-//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-//
-//                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//                UNUserNotificationCenter.current().add(request)
-//
-//            } else {
-//                print("Notification denied")
-//
-//                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//            }
-//        }
-        
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-
-//        let content = UNMutableNotificationContent()
-//        content.title = "Sluuurrp!"
-//        content.subtitle = "It's time to hydrate and stay healthy!"
-//        content.sound = UNNotificationSound.default
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-//
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request)
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         return true
     }

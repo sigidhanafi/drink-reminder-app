@@ -22,6 +22,16 @@ class HistoryViewController: UIViewController {
         return tableView
     }()
     
+    private let statStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.spacing = 10
+        view.distribution = .fillEqually
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,8 +46,28 @@ class HistoryViewController: UIViewController {
     
     private func bindViewModel() {
         self.viewModel.progressStat = { [weak self] data in
+            // update tableview
             self?.progressStat = data
             self?.tableView.reloadData()
+            
+            // the biggest achievement in ml, will be used as a 100% standard
+            guard let maxValue = data.map({ $0.value }).max() else { return }
+            
+            
+            // update view stat / grapth
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                let parentHeight = self?.statStackView.frame.height ?? 0
+                let parentWidth = self?.statStackView.frame.width ?? 0
+                for d in data {
+                    let percentageValue = ((d.value / maxValue) * 100) / 100
+                    
+                    // calculate frame and height
+                    let graphFrame = CGRect(x: 0, y: 0, width: parentWidth / 7, height: floor(percentageValue * (parentHeight - 50)))
+                    
+                    let statDay11 = CustomGraph(frame: graphFrame, title: d.key)
+                    self?.statStackView.addArrangedSubview(statDay11)
+                }
+            })
         }
     }
     
@@ -45,11 +75,16 @@ class HistoryViewController: UIViewController {
         view.backgroundColor = .white
         
         title = "Progress"
-        
+    
+        view.addSubview(statStackView)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            statStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            statStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20),
+            statStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20),
+            statStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -20),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor)

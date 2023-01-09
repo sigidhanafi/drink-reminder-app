@@ -26,7 +26,7 @@ internal class HistoryViewModel {
             
             for progress in data {
                 let dateformatter = DateFormatter()
-                dateformatter.dateFormat = "yyy-MM-dd"
+                dateformatter.dateFormat = "dd/MM"
                 let date = dateformatter.string(from: progress.date)
                 
                 progressData[date] = (progressData[date] ?? 0) + progress.progress
@@ -35,7 +35,6 @@ internal class HistoryViewModel {
             var stats = [ProgressStat]()
             
             for (key, value) in progressData {
-                print(value)
                 let stat = ProgressStat(key: key, value: value)
                 stats.append(stat)
             }

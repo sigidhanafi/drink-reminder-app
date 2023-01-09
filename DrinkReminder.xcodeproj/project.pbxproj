@@ -27,6 +27,7 @@
 		D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0472959EF0C00CB5633 /* UIColor.swift */; };
 		D8283F9E2963232D008B104E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9D2963232D008B104E /* NotificationViewController.swift */; };
 		D8283FA02965A351008B104E /* ProgressStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9F2965A351008B104E /* ProgressStat.swift */; };
+		D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283FA12965CF8A008B104E /* CustomGraph.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		D817B0472959EF0C00CB5633 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D8283F9D2963232D008B104E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D8283F9F2965A351008B104E /* ProgressStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStat.swift; sourceTree = "<group>"; };
+		D8283FA12965CF8A008B104E /* CustomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraph.swift; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 			children = (
 				3E592F2126533C6100FCC102 /* CustomButton.swift */,
 				D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */,
+				D8283FA12965CF8A008B104E /* CustomGraph.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */,
 				3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */,
 				3E592EFB26532E4D00FCC102 /* AppDelegate.swift in Sources */,
+				D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */,
 				3E592EFD26532E4D00FCC102 /* SceneDelegate.swift in Sources */,
 				D817B0482959EF0C00CB5633 /* UIColor.swift in Sources */,
 			);

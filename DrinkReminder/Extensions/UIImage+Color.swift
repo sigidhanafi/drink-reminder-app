@@ -1,5 +1,5 @@
 //
-//  UIImage+color.swift
+//  UIImage+Color.swift
 //  DrinkReminder
 //
 //  Created by Sigit on 18/05/21.

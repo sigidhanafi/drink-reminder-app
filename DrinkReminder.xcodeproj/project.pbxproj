@@ -13,7 +13,7 @@
 		3E592F0526532E4D00FCC102 /* DrinkReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F0326532E4D00FCC102 /* DrinkReminder.xcdatamodeld */; };
 		3E592F0726532E5000FCC102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E592F0626532E5000FCC102 /* Assets.xcassets */; };
 		3E592F0A26532E5000FCC102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E592F0826532E5000FCC102 /* LaunchScreen.storyboard */; };
-		3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1426532FD200FCC102 /* UIImage+color.swift */; };
+		3E592F1526532FD200FCC102 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F1426532FD200FCC102 /* UIImage+Color.swift */; };
 		3E592F2226533C6100FCC102 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E592F2126533C6100FCC102 /* CustomButton.swift */; };
 		D817B0342956119800CB5633 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0332956119800CB5633 /* UserDefaults.swift */; };
 		D817B0362956168500CB5633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817B0352956168500CB5633 /* Constants.swift */; };
@@ -28,6 +28,7 @@
 		D8283F9E2963232D008B104E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9D2963232D008B104E /* NotificationViewController.swift */; };
 		D8283FA02965A351008B104E /* ProgressStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9F2965A351008B104E /* ProgressStat.swift */; };
 		D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283FA12965CF8A008B104E /* CustomGraph.swift */; };
+		D8B7E452296CC1E800FC5C3C /* Date+Strideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +42,7 @@
 		3E592F0626532E5000FCC102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E592F0926532E5000FCC102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E592F0B26532E5000FCC102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E592F1426532FD200FCC102 /* UIImage+color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+color.swift"; sourceTree = "<group>"; };
+		3E592F1426532FD200FCC102 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		3E592F2126533C6100FCC102 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D817B0332956119800CB5633 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D817B0352956168500CB5633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		D8283F9D2963232D008B104E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D8283F9F2965A351008B104E /* ProgressStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStat.swift; sourceTree = "<group>"; };
 		D8283FA12965CF8A008B104E /* CustomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraph.swift; sourceTree = "<group>"; };
+		D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Strideable.swift"; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,9 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				D817B0332956119800CB5633 /* UserDefaults.swift */,
-				3E592F1426532FD200FCC102 /* UIImage+color.swift */,
+				3E592F1426532FD200FCC102 /* UIImage+Color.swift */,
 				D817B0352956168500CB5633 /* Constants.swift */,
 				D817B0472959EF0C00CB5633 /* UIColor.swift */,
+				D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,7 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E592F0526532E4D00FCC102 /* DrinkReminder.xcdatamodeld in Sources */,
-				3E592F1526532FD200FCC102 /* UIImage+color.swift in Sources */,
+				3E592F1526532FD200FCC102 /* UIImage+Color.swift in Sources */,
+				D8B7E452296CC1E800FC5C3C /* Date+Strideable.swift in Sources */,
 				D817B0342956119800CB5633 /* UserDefaults.swift in Sources */,
 				3E592EFF26532E4D00FCC102 /* HomeViewController.swift in Sources */,
 				D817B04629597D0600CB5633 /* HistoryViewModel.swift in Sources */,

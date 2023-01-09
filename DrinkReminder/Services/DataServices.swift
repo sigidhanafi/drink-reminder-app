@@ -115,6 +115,25 @@ final class DataServices: DataServiceProtocol {
         let managedContext = appDelegate.persistentContainer.viewContext
 
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Progress")
+        
+        // get current date
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss:Z"
+        dateFormatter.timeZone = calendar.timeZone
+        
+        guard let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) else { return .failure(DataServiceError.getDataError) }
+        let dateTo = calendar.startOfDay(for: tomorrow)
+        guard let dateFrom = calendar.date(byAdding: .day, value: -7, to: dateTo) else { return .failure(DataServiceError.getDataError) }
+        // guard let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom) else { return .failure(DataServiceError.getDataError) }
+
+//        fetchRequest.predicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+//        fetchRequest.predicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+        
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", dateFrom as NSDate, dateTo as NSDate)
 
         // add sort when fetch request
         let sortByDate = NSSortDescriptor.init(key: "date", ascending: true)

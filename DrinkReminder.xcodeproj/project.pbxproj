@@ -28,6 +28,8 @@
 		D8283F9E2963232D008B104E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9D2963232D008B104E /* NotificationViewController.swift */; };
 		D8283FA02965A351008B104E /* ProgressStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283F9F2965A351008B104E /* ProgressStat.swift */; };
 		D8283FA22965CF8A008B104E /* CustomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8283FA12965CF8A008B104E /* CustomGraph.swift */; };
+		D8A5F27E298014CB00516DF3 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5F27D298014CB00516DF3 /* NotificationViewModel.swift */; };
+		D8A5F2802980211000516DF3 /* NotificationEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5F27F2980211000516DF3 /* NotificationEventType.swift */; };
 		D8B7E452296CC1E800FC5C3C /* Date+Strideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */; };
 		D8F6DC9C29542A4600833A0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9B29542A4600833A0D /* SettingViewController.swift */; };
 		D8F6DC9E29543DA300833A0D /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */; };
@@ -57,6 +59,8 @@
 		D8283F9D2963232D008B104E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D8283F9F2965A351008B104E /* ProgressStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStat.swift; sourceTree = "<group>"; };
 		D8283FA12965CF8A008B104E /* CustomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGraph.swift; sourceTree = "<group>"; };
+		D8A5F27D298014CB00516DF3 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		D8A5F27F2980211000516DF3 /* NotificationEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEventType.swift; sourceTree = "<group>"; };
 		D8B7E451296CC1E800FC5C3C /* Date+Strideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Strideable.swift"; sourceTree = "<group>"; };
 		D8F6DC9B29542A4600833A0D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D8F6DC9D29543DA300833A0D /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				D817B0432959783900CB5633 /* HistoryViewController.swift */,
 				D817B04529597D0600CB5633 /* HistoryViewModel.swift */,
 				D8283F9D2963232D008B104E /* NotificationViewController.swift */,
+				D8A5F27D298014CB00516DF3 /* NotificationViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				D817B03B2956C69D00CB5633 /* ProgressData.swift */,
 				D817B03D2956CACE00CB5633 /* TargetData.swift */,
 				D8283F9F2965A351008B104E /* ProgressStat.swift */,
+				D8A5F27F2980211000516DF3 /* NotificationEventType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E592F0526532E4D00FCC102 /* DrinkReminder.xcdatamodeld in Sources */,
+				D8A5F2802980211000516DF3 /* NotificationEventType.swift in Sources */,
 				3E592F1526532FD200FCC102 /* UIImage+Color.swift in Sources */,
 				D8B7E452296CC1E800FC5C3C /* Date+Strideable.swift in Sources */,
 				D817B0342956119800CB5633 /* UserDefaults.swift in Sources */,
@@ -241,6 +248,7 @@
 				D817B03C2956C69D00CB5633 /* ProgressData.swift in Sources */,
 				D817B0442959783900CB5633 /* HistoryViewController.swift in Sources */,
 				D817B0392956C49F00CB5633 /* DataServices.swift in Sources */,
+				D8A5F27E298014CB00516DF3 /* NotificationViewModel.swift in Sources */,
 				D8283FA02965A351008B104E /* ProgressStat.swift in Sources */,
 				D817B03E2956CACE00CB5633 /* TargetData.swift in Sources */,
 				D817B0402956D6B200CB5633 /* HomeViewModel.swift in Sources */,

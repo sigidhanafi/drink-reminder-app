@@ -9,6 +9,8 @@ import UIKit
 
 class NotificationViewController: UIViewController {
     
+    private let viewModel = NotificationViewModel()
+    
     private let contentStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -39,8 +41,8 @@ class NotificationViewController: UIViewController {
     
     private let morningSwitch: UISwitch = {
         let view = UISwitch()
-        view.isOn = UserDefaults.standard.bool(forKey: "StayHidrateMorningReminder")
         view.isEnabled = true
+        view.tag = NotificationEventType.morning.id
         
         return view
     }()
@@ -66,8 +68,8 @@ class NotificationViewController: UIViewController {
     
     private let afternoonSwitch: UISwitch = {
         let view = UISwitch()
-        view.isOn = UserDefaults.standard.bool(forKey: "StayHidrateAfternoonReminder")
         view.isEnabled = true
+        view.tag = NotificationEventType.afternoon.id
         
         return view
     }()
@@ -93,8 +95,8 @@ class NotificationViewController: UIViewController {
     
     private let eveningSwitch: UISwitch = {
         let view = UISwitch()
-        view.isOn = UserDefaults.standard.bool(forKey: "StayHidrateEveningReminder")
         view.isEnabled = true
+        view.tag = NotificationEventType.evening.id
         
         return view
     }()
@@ -104,6 +106,29 @@ class NotificationViewController: UIViewController {
         
         title = "Notification"
         
+        setupView()
+        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel.changeMorningSwitchValue = { [weak self] value in
+            self?.morningSwitch.isOn = value
+        }
+        
+        viewModel.changeAfternoonSwitchValue = { [weak self] value in
+            self?.afternoonSwitch.isOn = value
+        }
+        
+        viewModel.changeEveningSwitchValue = { [weak self] value in
+            self?.eveningSwitch.isOn = value
+        }
+        
+        self.viewModel.didLoadTrigger()
+        
+    }
+    
+    private func setupView() {
         view.backgroundColor = .white
         
         morningStackView.addArrangedSubview(morningLabel)
@@ -121,129 +146,27 @@ class NotificationViewController: UIViewController {
         
         view.addSubview(contentStackView)
         
-        morningSwitch.addTarget(self, action: #selector(morningSwitchHandler), for: .valueChanged)
-        afternoonSwitch.addTarget(self, action: #selector(afternoonSwitchHandler), for: .valueChanged)
-        eveningSwitch.addTarget(self, action: #selector(eveningSwitchHandler), for: .valueChanged)
+        morningSwitch.addTarget(self, action: #selector(changeSwitchValueHandler), for: .valueChanged)
+        afternoonSwitch.addTarget(self, action: #selector(changeSwitchValueHandler), for: .valueChanged)
+        eveningSwitch.addTarget(self, action: #selector(changeSwitchValueHandler), for: .valueChanged)
         
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             contentStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             contentStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16)
         ])
-        
     }
     
-    @objc private func morningSwitchHandler(_ sender: UISwitch) {
-        if sender.isOn {
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                    print("Morning Notification enabled")
-                    print("Morning Notification set via button")
-    
-                    let content = UNMutableNotificationContent()
-                    content.title = "Good Morning!"
-                    content.subtitle = "Start your day with drink. Stay hydrate!"
-                    content.sound = UNNotificationSound.default
-    
-                    var dateComponent = DateComponents()
-                    dateComponent.hour = 8
-                    dateComponent.minute = 00
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                    // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-    
-                    let request = UNNotificationRequest(identifier: "StayHidrateMorningReminder", content: content, trigger: trigger)
-    
-                    UNUserNotificationCenter.current().add(request)
-                    
-                    UserDefaults.standard.set(true, forKey: "StayHidrateMorningReminder")
-    
-                } else {
-                    print("Notification denied")
-                }
-            }
-        } else {
-            print("Morning Notification disabled")
-            print("Morning Notification set via button")
-            
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["StayHidrateMorningReminder"])
-            
-            UserDefaults.standard.set(false, forKey: "StayHidrateMorningReminder")
-        }
-    }
-    
-    @objc private func afternoonSwitchHandler(_ sender: UISwitch) {
-        if sender.isOn {
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                    print("Afternoon Notification authorized")
-                    print("Afternoon Notification set via button")
-    
-                    let content = UNMutableNotificationContent()
-                    content.title = "Good Afternoon!"
-                    content.subtitle = "You at your half day. Stay hydrate!"
-                    content.sound = UNNotificationSound.default
-    
-                    var dateComponent = DateComponents()
-                    dateComponent.hour = 12
-                    dateComponent.minute = 00
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                    // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-    
-                    let request = UNNotificationRequest(identifier: "StayHidrateAfternoonReminder", content: content, trigger: trigger)
-    
-                    UNUserNotificationCenter.current().add(request)
-                    
-                    UserDefaults.standard.set(true, forKey: "StayHidrateAfternoonReminder")
-    
-                } else {
-                    print("Notification denied")
-                }
-            }
-        } else {
-            print("Afternoon Notification disabled")
-            print("Afternoon Notification set via button")
-            
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["StayHidrateAfternoonReminder"])
-            
-            UserDefaults.standard.set(false, forKey: "StayHidrateAfternoonReminder")
-        }
-    }
-    
-    @objc private func eveningSwitchHandler(_ sender: UISwitch) {
-        if sender.isOn {
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.authorizationStatus == UNAuthorizationStatus.authorized {
-                    print("Evening Notification enabled")
-                    print("Evening Notification set via button")
-    
-                    let content = UNMutableNotificationContent()
-                    content.title = "Good Evening!"
-                    content.subtitle = "Your day almost end. Stay hydrate!"
-                    content.sound = UNNotificationSound.default
-    
-                    var dateComponent = DateComponents()
-                    dateComponent.hour = 16
-                    dateComponent.minute = 00
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                    // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-    
-                    let request = UNNotificationRequest(identifier: "StayHidrateEveningReminder", content: content, trigger: trigger)
-    
-                    UNUserNotificationCenter.current().add(request)
-                    
-                    UserDefaults.standard.set(true, forKey: "StayHidrateEveningReminder")
-    
-                } else {
-                    print("Notification denied")
-                }
-            }
-        } else {
-            print("Evening Notification disabled")
-            print("Evening Notification set via button")
-            
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["StayHidrateEveningReminder"])
-            
-            UserDefaults.standard.set(false, forKey: "StayHidrateEveningReminder")
+    @objc private func changeSwitchValueHandler(_ sender: UISwitch) {
+        switch sender.tag {
+        case NotificationEventType.morning.id:
+            viewModel.triggerChangeSwitchValue(type: .morning, currentValue: sender.isOn)
+        case NotificationEventType.afternoon.id:
+            viewModel.triggerChangeSwitchValue(type: .afternoon, currentValue: sender.isOn)
+        case NotificationEventType.evening.id:
+            viewModel.triggerChangeSwitchValue(type: .evening, currentValue: sender.isOn)
+        default:
+            break
         }
     }
 }
